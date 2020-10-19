@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Statements</h2>
+
+<p>A <b>JavaScript program</b> is a list of <b>statements</b> to be executed by a computer.</p>
+<h3>Addition</h3>
+
+<form onsubmit="event.preventDefault(); add();">
+    <input type="number" id = "a" />
+    <input type="number" id = "b" />
+    <button>Add </button>
+    <h3 id="result"></h3>
+</form>
+
+<script>
+
+function add() {
+	var a = document.getElementById('a').value;
+    var b = document.getElementById('b').value;
+    // document.write(typeof a);
+    // document.write(a + " and " + b);
+    // document.write(typeof b);
+
+    var aInt = parseInt(a);
+    var bInt = parseInt(b);
+
+    // document.write(typeof aInt);
+    // document.write(aInt + " and " + bInt);
+    // document.write(typeof bInt);
+    document.getElementById("result").innerHTML = aInt + bInt ;
+}
+</script>
+<h3>Subtraction</h3>
+<form onsubmit="event.preventDefault(); subtract();">
+    <input type="number" id = "c" />
+    <input type="number" id = "d" />
+    <button>Subtract </button>
+    <h3 id="minus"></h3>
+</form>
+<script>
+    function subtract(){
+        var c =document.getElementById('c').value;
+        var d = document.getElementById('d').value;
+        var cInt = parseInt(c);
+        var dInt = parseInt(d);
+        document.getElementById('minus').innerHTML = cInt - dInt ;
+    }
+</script>
+
+
+</body>
+</html>

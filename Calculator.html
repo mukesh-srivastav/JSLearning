@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Calculator</title>
+    </head>
+    <body>
+        <h2>Calculator & JS Learning</h2>
+        <p>Enter two numbers and select the operation you want to do - </p>
+        
+        <form onsubmit="event.preventDefault(); calculate();">
+            <label for="firstNumber">First Number:</label>
+                <input type="number" name="firstNumber"/>
+            <label for="secondNumber">Second Number:</label>
+                <input type="number" name="secondNumber"/>
+            <label for="operation">Choose Operation:</label>
+                <select name="operation">
+                    <option value="add">Addition</option>
+                    <option value="subtract">Subtraction</option>
+                    <option value="multiply">Multiplication</option>
+                    <option value="divide">Division</option>
+                    <option value="power">Power</option>
+                    <option value="modulus">Remainder</option>
+                    <option value="left_shift">Zero Fill Left Shift</option>
+                </select>
+            
+            <input type="submit"/>
+            <input type="reset"/>
+        </form>
+        <h2>Result:</h2>
+        <h3 id="result"></h3>
+
+        <script>
+            function calculate()
+            {
+                var firstInput = document.getElementsByName('firstNumber')[0].value;
+                var secondInput = document.getElementsByName('secondNumber')[0].value;
+                var operation   = document.getElementsByName('operation')[0].value;
+
+                var firstNumber = parseInt(firstInput);
+                var secondNumber = parseInt(secondInput);
+                
+                var result;
+
+                // This is using if else statements.
+                if (operation == "add") {
+                    result = firstNumber + secondNumber;
+                } else if (operation == "subtract") {
+                    result = firstNumber - secondNumber;
+                } else if (operation == "multiply") {
+                    result = firstNumber * secondNumber;
+                } else if (operation == "divide") {
+                    if (firstNumber > secondNumber) {
+                        result = firstNumber / secondNumber;
+                    } else {
+                        result = "Error: First Number should be greater than second for division";
+                    }
+                } else if (operation == "power") {
+                    result = firstNumber ** secondNumber;
+                } else if (operation == "modulus") {
+                    result = firstNumber % secondNumber;
+                } else if (operation == "left_shift") {
+                    result = firstNumber << secondNumber;
+                }
+
+                document.getElementById("result").innerHTML = result;
+            }
+        </script>
+    </body>
+
+</html>
